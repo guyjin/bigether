@@ -198,11 +198,40 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* =============================================================================
    Primary styles
-   Author: 
+   Author: Ben Vaughan
    ========================================================================== */
+html {
+    background: #000;
+}
+#bg {
+        position:fixed;
+        top:-50%;
+        left:-50%;
+        width:200%;
+        height:144%;
+}
+#bg img {
+        position:absolute;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        min-width:50%;
+        min-height:50%;
+}
 
+#container {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
 
-
+#intro {
+    bottom: 0;
+    margin: 1em;
+    position: fixed;
+    width: 11em;
+}
 
 
 
@@ -235,7 +264,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
 
 
 /* =============================================================================
