@@ -1,7 +1,0 @@
-192.168.0.131 - - [16/Oct/2011:01:03:08 -0600] "GET / HTTP/1.1" 200 1102 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
-192.168.0.131 - - [16/Oct/2011:01:03:08 -0600] "GET /js/script.js HTTP/1.1" 200 384 "http://big/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
-192.168.0.131 - - [16/Oct/2011:01:03:08 -0600] "GET /js/plugins.js HTTP/1.1" 200 700 "http://big/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
-192.168.0.131 - - [16/Oct/2011:01:03:08 -0600] "GET /js/libs/modernizr-2.0.6.min.js HTTP/1.1" 200 6983 "http://big/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
-192.168.0.131 - - [16/Oct/2011:01:03:08 -0600] "GET /css/style.css HTTP/1.1" 200 3744 "http://big/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
-192.168.0.131 - - [16/Oct/2011:01:03:08 -0600] "GET /favicon.ico HTTP/1.1" 200 1442 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
-192.168.0.131 - - [16/Oct/2011:01:03:08 -0600] "GET /favicon.ico HTTP/1.1" 200 1442 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
