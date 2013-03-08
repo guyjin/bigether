@@ -10,7 +10,9 @@ jQuery(document).ready(function ($) {
 
     checkSize();
 
-    $('body .header-container, #bg').fadeIn(1500);
+    $('body .header-container, #bg').fadeIn(1500,function(){
+        menuslide();
+    });
 });
 
 var checkSize = function () {
@@ -24,6 +26,18 @@ var checkSize = function () {
     }
 };
 
+
+var menuslide = function () {
+    $(".header-container a").each(function (i) {
+        // store the item around for use in the 'timeout' function
+        var $item = $(this);
+        // execute this function sometime later:
+        setTimeout(function () {
+            $item.animate({"marginTop": 0}, 400, 'linear');
+        }, 50 * i);
+        // each element should animate half a second after the last one.
+    });
+};
 
 
 
