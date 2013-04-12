@@ -3,6 +3,20 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
+<?php
+    if( $handle = opendir('img/backgrounds')) {
+            while (false !== ($entry = readdir($handle))) {
+                if($entry != '.' && $entry != '..')
+                $imageDirList[] = $entry;
+            }
+            // Grab a random (sorta) index from the image array
+            $imageIndex = rand(0, count($imageDirList)-1);
+
+            $imageName = $imageDirList[$imageIndex];
+
+        }
+
+?>
 <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -40,7 +54,7 @@
                     </nav>
                 </div>
             </header>
-            <img src="img/backgrounds/glasses/normal.jpg" class="bg" alt="big ol' picture.  oooooo." />
+            <img src="img/backgrounds/<?php echo $imageName; ?>/normal.jpg" class="bg" alt="big ol' picture.  oooooo." />
         </div>
 
         <div class="main-container">

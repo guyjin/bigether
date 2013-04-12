@@ -1,0 +1,132 @@
+@media only screen and (max-device-width: 480px) and (orientation: landscape), only screen and (min-device-width: 640px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    /* iPhone only */
+
+
+
+    .title {
+        text-shadow: 0 1px 1px rgba(0,0,0,0.75);
+        background: none;
+        padding-left: 0;
+    }
+
+    nav a {
+        margin: 0 auto;
+    }
+
+
+}
+/*
+/*Original iPhone screens*/
+
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    body {
+        width: 320px;
+        min-height: 480px;
+        font-size: 150%;
+        background: url('../bg.php?s=micro&i=<?php echo imageName; ?>') no-repeat top middle;
+    }
+
+    .title {
+        background: none;
+        padding-left: 0;
+    }
+
+
+}
+
+@media only screen and (max-device-width: 480px) and (orientation: landscape){
+    body {
+        width: 480px;
+        min-height: 320px;
+        font-size: 150%;
+        background: url('../bg.php?s=micro&i=<?php echo $imageName; ?>') no-repeat top middle;
+    }
+    .title {
+        background: none;
+        padding-left: 0;
+    }
+}
+
+/*iPhone 4/4S screens*/
+
+@media only screen and (max-device-width: 960px) and (orientation: portrait) {
+    body {
+        width: 640px;
+        min-height: 960px;
+        font-size: 200%;
+        background: url('../bg.php?s=large&i=<?php echo $imageName; ?>') no-repeat top middle;
+    }
+    .title {
+        background: none;
+        padding-left: 0;
+    }
+
+}
+
+@media only screen and (max-device-width: 960px) and (orientation: landscape){
+    body {
+        width: 960px;
+        min-height: 640px;
+        font-size: 200%;
+        background: url('../bg.php?s=large&i=<?php echo $imageName; ?>') no-repeat top;
+    }
+}
+
+
+
+/*iPhone 5 screens*/
+@media only screen and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    body {
+        width: 640px;
+        min-height: 1136px;
+        font-size: 200%;
+        background: url('../bg.php?s=small&i=<?php echo $imageName; ?>') no-repeat top middle;
+    }
+    .title {
+        background: none;
+        padding-left: 0;
+    }
+}
+
+@media only screen and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    body {
+        width: 1136px;
+        min-height: 640px;
+        background: #000 url('../bg.php?s=large&i=<?php echo $imageName; ?>') no-repeat bottom middle;
+    }
+}
+
+/* iPad screens */
+
+@media only screen and (min-device-width: 768px) and (orientation: portrait) {
+
+    body {
+        font-size: 16/;
+        background: url('../bg.php?s=medium&i=<?php echo $imageName; ?>') no-repeat top middle;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (orientation: landscape) {
+
+    body {
+        background: url('../bg.php?s=normal&i=<?php echo $imageName; ?>') no-repeat top middle;
+    }
+}
+
+/*
+    Big ass screens
+
+*/
+
+
+@media only screen and (max-width: 1600px) {
+    body {
+        background: url('../bg.php?s=large&i=<?php echo $imageName; ?>') no-repeat top center;
+    }
+}
+
+@media only screen and (min-width: 1601px) {
+    body {
+        background: #000 url('../bg.php?s=jumbo&i=<?php echo $imageName; ?>') no-repeat bottom center;
+    }
+}

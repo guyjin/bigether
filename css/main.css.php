@@ -111,20 +111,10 @@ body {
 }
 
 
-.header-container {
-    max-width: 1600px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-}
 
-header.wrapper {
-    padding: 1rem 0;
-    position: relative;
-    width: 100%;
-    z-index: 2;
-}
-
+/* ==============
+    MOBILE: Menu
+   ============== */
 .title {
     font-family: 'LaneNarrowRegular', sans-serif;
     font-size: 40px;
@@ -147,9 +137,10 @@ header.wrapper {
 }
 
 #navigation{
+    position: absolute;
     overflow: hidden;
-    position: relative;
-    float: right;
+    top: 0;
+    right: 0;
     display: inline-block;
 }
 
@@ -198,20 +189,18 @@ nav.nav a:hover {
     text-shadow: none;
  }
 
-.bg {
-    width: 100%;
-}
+
 
 
 
 .main-container {
-    max-width: 1600px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    background-color: inherit;
-    background-color: rgba(0,0,0,0.5);
-    margin-top: -15.6rem;
+    position: absolute;
+    z-index: 2;
+    width: 25%;
+    right: -25%;
+    top: 0;
+    bottom: 48px;
+    background: rgba(0,0,0,0.25);
 }
 
 .main {
@@ -230,10 +219,8 @@ article a {
 }
 
 #re {
-    width: 43rem;
-    padding: 3em;
+    display: none;
 }
-
 
 .sidr {
     box-shadow: none;
@@ -270,6 +257,11 @@ article a {
    Media Queries
    ========================================================================== */
 
+
+
+
+
+
 @media only screen and (max-width: 785px) {
     #mobile-header {
         display: block;
@@ -291,15 +283,6 @@ article a {
         text-indent: -9999em;
         display: block;
     }
-
-    .main-container {
-        margin-top: 0;
-        background: none;
-    }
-
-    #re {
-        width: auto;
-    }
 }
 
 @media only screen and (min-width: 786 px) {
@@ -308,36 +291,6 @@ article a {
     }
 }
 
-/* iphone 5*/
-@media only screen and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-    .bg {
-        width: 50%;
-        float: right;
-        margin-left: 1rem;
-    }
-    #re {
-        font-size: .7rem;
-        line-height: 1.5rem;
-        padding-left: 1em;
-    }
-}
-
-@media only screen and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-    #re {
-        font-size: .7rem;
-        line-height: 1.5rem;
-        padding: 1em;
-    }
-}
-
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-    .main-container {
-        margin-top: -18.6em;
-    }
-    #re {
-        padding-bottom: 7em;
-    }
-}
 
 
 
