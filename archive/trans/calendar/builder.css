@@ -1,0 +1,87 @@
+body {
+	font-family: helvetica, verdana, arial, sans-serif;
+}
+
+div#key {
+	float: left;
+	margin-right: 1em;
+	margin-top: 4.5em;
+}
+	
+	div#key li {
+		list-style-type: none;
+	}
+
+div#calendar {
+	width: 42.5em;
+	float:  left;
+	border-bottom: 1px solid #000;
+}
+
+div#calendar h1 {
+	text-align: center;
+	
+}
+
+div#dayTitles ul {
+	padding: 0;
+	margin: 0;
+}
+
+div#dayTitles li {
+	list-style-type: none;
+	float: left;
+	display: block;
+	width: 6em;
+	text-align: center;
+}
+
+div.dateBlock {
+	width: 6em;
+	height: 6em;
+	float: left;
+	border: 1px solid #000;
+	border-width:  1px 1px 0 0;
+	position: relative;
+}
+
+	div.dateBlock span.daytype {
+		font-size: 2em;
+		margin: 1.25em 1em 1em .25em;
+		display: block;
+		color: #999;
+	}
+	
+	div.dateBlock span.dateNum {
+		margin: .5em 0 0 .5em;
+		display: block;
+	}
+	
+div.blank {
+	background-color: #ddd;
+}
+
+div.day0 {
+	clear: left;
+	border-width: 1px 1px 0 1px;
+}
+
+div.day5 span.daytype{
+	text-transform: lowercase;
+	color:  #efefef;
+}
+
+div.today span.daytype {
+	font-size: 2em;
+	font-weight: bold;
+	color: red;
+}
+
+span.message {
+	display: block;
+	position: absolute;
+	top:  3.9em;
+	left: 1em;
+	color:  #999;
+	font-size:  .8em;
+}

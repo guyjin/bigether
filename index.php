@@ -26,8 +26,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="stylesheet" href="css/jquery.sidr.dark.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bg.css.php" type="text/css">
 
 </head>
 <body>
@@ -46,15 +46,14 @@
                             <li><a href="#projects" ontouchstart="" class="local">projects</a></li>
                             <li><a href="http://quotes.bigether.com" target="_blank">quotes</a></li>
                             <li><a href="http://blog.bigether.com/" target="_blank">tumblr</a></li>
-                            <li><a href="#work" class="local">work</a></li>
-                            <li><a href="#geek" class="local">geek</a></li>
+                           <!--  <li><a href="#work" class="local">work</a></li>
+                            <li><a href="#geek" class="local">geek</a></li> -->
                             <li><a href="http://pinterest.com/guyjin/" target="_blank">pins</a></li>
-                            <li><a href="#re" class="local" id="regarding">re:</a></li>
                         </ul>
                     </nav>
                 </div>
             </header>
-            <img src="img/backgrounds/<?php echo $imageName; ?>/normal.jpg" class="bg" alt="big ol' picture.  oooooo." />
+            <!-- <img src="img/backgrounds/<?php echo $imageName; ?>/normal.jpg" class="bg" alt="big ol' picture.  oooooo." /> -->
         </div>
 
         <div class="main-container">

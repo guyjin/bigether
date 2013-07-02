@@ -1,0 +1,49 @@
+/**
+ * Styles to be used in conjunction with the Scrunchy js plug-in.
+ *
+ * Written by: Ben Vaughan
+ *
+ */
+
+.scrunchyLink {
+	background: url("/core/images/caret_sprite.png") no-repeat scroll 30px 13px transparent;
+    padding-left: 26px;
+    margin-bottom: -10px;
+}
+
+.scrunchyLink.active {
+	background-image: url("/core/images/caret_sprite_down.png");
+}
+
+.scrunchyLink *,.moretrigger {
+	color: #607890;
+	text-decoration: underline;
+}
+
+.scrunchyLink *:hover, .moretrigger:hover {
+	cursor: pointer;
+}
+
+.scrunchy dd>span {
+	display: block;
+	height: 0;
+	width: 0;
+	border-top: 0px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 10px solid #79ba25;
+	left: 47px;
+	position: relative;
+}
+
+.scrunchy dd>div {
+	margin: 0px 2em;
+	border: 1px solid #79BA25;
+	background-color: #F7F7F7;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+
+

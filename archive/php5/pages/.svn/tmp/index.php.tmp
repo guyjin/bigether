@@ -1,0 +1,27 @@
+<?php
+    define('ABSPATH',dirname(__FILE__));
+    define('BASEPATH',dirname(dirname(__FILE__)));
+    define('COREPHP', '/core/php/' );
+    define('COREJS', '/core/js/' );
+    define('CORECSS', '/core/css/' );
+    define('COREIMG', '/core/images/' );
+    define('PAGESPATH', '/pages/' );
+    define('STATICPATH', '/static/' );
+    define('TEMPLATEPATH', '/templates/' );
+    
+    
+    //echo ABSPATH.'<br>';
+    //echo BASEPATH.'<br>';
+   // echo BASENAME.'<br>';
+    //echo REALPATH.'<br>';
+    //echo BASE_URL.'<br>';
+    //echo __FILE__;
+    
+    include_once BASEPATH.COREPHP.'Page.class.php';
+    include_once BASEPATH.COREPHP.'WebPage.class.php';
+    include_once BASEPATH.COREPHP.'Template.class.php';
+    include_once 'Footer.class.php';
+
+    $w = new WebPage('portal', 'AQM Acquisition Management', 'HNF', '', '', 'Acquisition Management Home', 'Acqusition Management','testContent');
+    //$t = new Template($w->getTemplate(), 'wo', 'wo', 'wo', 'testContent');
+?>

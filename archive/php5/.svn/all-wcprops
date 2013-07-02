@@ -1,0 +1,21 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 24
+/svn/repos/aqm/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/repos/aqm/!svn/ver/21528/aqm_dev/corsair
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/repos/aqm/!svn/ver/21247/aqm_dev/corsair/.htaccess
+END
+dbTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/repos/aqm/!svn/ver/20040/aqm_dev/corsair/dbTest.php
+END

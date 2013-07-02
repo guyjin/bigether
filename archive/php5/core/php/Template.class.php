@@ -1,0 +1,344 @@
+<?php
+
+/**
+ * Class to build html framework and plumbing around
+ * page content.
+ */
+include_once BASEPATH . COREPHP . 'helpers/ParseAndReplace.class.php';
+
+class Template {
+
+    /**
+     * @access private
+     * @var string $Id string identifying the page's ID
+     */
+    private $id = '';
+    /**
+     * @access private
+     * @var array Array containing values to assign to body tag
+     */
+    private $class= '';
+    /**
+     * @access private
+     * @var string $browserAgent string identifying the user's browser
+     */
+    private $browserAgent = '';
+    /**
+     * @access private
+     * @var string $template file to put all the rest of the page elements in.
+     */
+    private $template = '';
+    /**
+     * @access private
+     * @var string $header Name of header object to be populated.
+     */
+    private $header = '';
+    /**
+     * @access private
+     * @var string Value to display in page header.
+     */
+    private $pageTitle = '';
+    /**
+     * @access private
+     * @var string Value to display in page header below main page title.
+     */
+    private $pageSubTitle = '';
+    /**
+     * @access private
+     * @var string $footer  Name of footer object to be populated
+     */
+    private $footer = '';
+    /**
+     * @access private
+     * @var string $nav Name of Nav object to be populated
+     */
+    private $nav = '';
+    /**
+     * @access private
+     * @var string $content Name of content file to load
+     */
+    private $content = '';
+    /**
+     * @access private
+     * @var string $processed Results of parsed template with all parts included
+     */
+    private $processed = '';
+    /**
+     * @access private
+     * @var BOOL $didError did the parsing of the pieces error at any point?
+     */
+    private $didError = '';
+    /**
+     *  @var object  Will be the parseandreplace object.
+     *  @access private
+     */
+    private $pnr = '';
+    /**
+     * Will hold all the values that need to be inserted into the template
+     * @access private
+     * @var type array
+     */
+    private $matches = array();
+
+    /**
+     * instantiate the Template object.  Can overload and override
+     * the default values.
+     *
+     * @param string $template
+     * @param string $header
+     * @param string $nav
+     * @param string $footer
+     * @param string $content
+     * @param string $pageTitle
+     * @param string $pageSubTitle
+     */
+    public function __construct($id = '', $class = '', $template = '', $header = '', $nav = '', $footer = '', $content = '', $pageTitle = '', $pageSubTitle = '', $browserAgent = '') {
+        $this->setId($id);
+        $this->setClass($class);
+        $this->setTemplate($template);
+        $this->setHeader($header);
+        $this->setNav($nav);
+        $this->setFooter($footer);
+        $this->setContent($content);
+        $this->setPageTitle($pageTitle);
+        $this->setPageSubTitle($pageSubTitle);
+        $this->setBrowserAgent($browserAgent);
+        $this->setMatches();
+        $this->didError = FALSE;
+        $this->loadTemplate();
+    }
+
+    /**
+     * @access public
+     * @return bool returns true if parsing contained errors otherwise returns false .
+     */
+    public function hasErrors() {
+        return $this->didError;
+    }
+
+    /**
+     * @access private
+     * @param string $template passes in the name of the template file to use
+     */
+    private function setTemplate($template) {
+        if ($template == '') {
+            $this->template = BASEPATH . TEMPLATEPATH . 'layoutTemplateDefault.php';
+        } else {
+            $this->template = BASEPATH . TEMPLATEPATH . 'layoutTemplate' . $template . '.php';
+        }
+    }
+
+    /**
+     * @access private
+     * @param string $id sets page id
+     */
+    private function setId($id) {
+        $this->id = $id;
+    }
+
+    /**
+     * @access public
+     * @return string returns the page's id.
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * @access private
+     * @param string $id sets page id
+     */
+    private function setClass($class) {
+        $this->class = $class;
+    }
+
+    /**
+     * @access public
+     * @return array returns array of values to assign to body tag.
+     */
+    public function getClass() {
+        return $this->class;
+    }
+
+    /**
+     * @access private
+     * @param string $agent sets browser agent
+     */
+    private function setBrowserAgent($agent) {
+        $this->browserAgent = $agent;
+    }
+
+    /**
+     * @access public
+     * @return string returns the user's browser agent.
+     */
+    public function getBrowserAgent() {
+        return $this->browserAgent;
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the template file to use.
+     */
+    public function getTemplate() {
+        return $this->template;
+    }
+
+    /**
+     * @access private
+     * @param string $header Sets the name of the header to use.
+     */
+    private function setHeader($h) {
+        $this->header = BASEPATH . TEMPLATEPATH . 'header_' . $h . '.php';
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the header configuration to use
+     */
+    public function getHeader() {
+        return $this->header;
+    }
+
+    /**
+     * @access private
+     * @param string $header Sets the page title.
+     */
+    private function setPageTitle($pageTitle) {
+        $this->pageTitle = $pageTitle;
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the page title
+     */
+    public function getPageTitle() {
+        return $this->pageTitle;
+    }
+
+    /**
+     * @access private
+     * @param string $header Sets the page title.
+     */
+    private function setPageSubTitle($pageSubTitle) {
+        $this->pageSubTitle = $pageSubTitle;
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the page title
+     */
+    public function getPageSubTitle() {
+        return $this->pageSubTitle;
+    }
+
+    /**
+     * @access private
+     * @param string $footer Sets the name of the header to use.
+     */
+    private function setFooter($f) {
+        $this->footer = BASEPATH . TEMPLATEPATH . 'footer_' . $f . '.php';
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the footer configuration to use
+     */
+    public function getFooter() {
+        return $this->footer;
+    }
+
+    /**
+     * @access private
+     * @param string $nav Sets the name of the header to use.
+     */
+    private function setNav($nav) {
+        $this->nav = $nav;
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the nav configuration to use
+     */
+    public function getNav() {
+        return $this->nav;
+    }
+
+    /**
+     * Sets the content to use.  If the content file cannot be found it will default
+     * to a 404 content page
+     * @access private
+     * @param string $content sets the path to the content file
+     */
+    private function setContent($c) {
+        $this->content = BASEPATH . '/content/' . $c . '.php';
+        if (!file_exists($this->content)) {
+            $this->content = BASEPATH . '/content/404.php';
+        }
+    }
+
+    /**
+     * @access public
+     * @return type string
+     */
+    public function getContent() {
+        return $this->content;
+    }
+
+    /**
+     * Populate array with template values that the parse and replace
+     * class can read into the template
+     *
+     * @access private
+     */
+    private function setMatches() {
+        $this->matches["id"] = $this->getId();
+        $this->matches["class"] = $this->getClass();
+        $this->matches["header"] = $this->getHeader();
+        $this->matches["nav"] = $this->getNav();
+        $this->matches["content"] = $this->getContent();
+        $this->matches["footer"] = $this->getFooter();
+        $this->matches["pageTitle"] = $this->getPageTitle();
+        $this->matches["pageSubTitle"] = $this->getPageSubTitle();
+        $this->matches["browserAgent"] = $this->getBrowserAgent();
+    }
+
+    /**
+     * Returns the Matches array
+     * @return type array
+     */
+    private function getMatches() {
+        return $this->matches;
+    }
+
+    /**
+     * Retrieve template file for use on webpage
+     *
+     * @access private
+     */
+    private function loadTemplate() {
+        try {
+            $this->pnr = new ParseAndReplace($this->getTemplate(), $this->getMatches());
+            if (!$this->pnr->hasErrors()) {
+                $this->processed = $this->pnr->getUpdated();
+            } else {
+                $this->didError = TRUE;
+                throw new Exception("ERROR PARSING TEMPLATE");
+            }
+        } catch (exception $e) {
+            $this->didError = TRUE;
+            print_r($e);
+        }
+    }
+
+    /**
+     * @access public
+     * @return type string
+     */
+    public function getHTML() {
+        return $this->processed;
+    }
+
+}
+
+?>
