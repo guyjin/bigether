@@ -13,7 +13,7 @@
         }
 ?>
 
-.backgroundsize body {
+body {
     background: url(/img/backgrounds/<?php echo $imageName; ?>/normal.jpg) no-repeat center;
     background-size: cover;
     background-position: center;
