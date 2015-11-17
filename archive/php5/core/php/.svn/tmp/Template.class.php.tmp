@@ -1,0 +1,285 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Class to build html framework and plumbing around
+ * page content.
+ *
+ * @author bvaughan
+ *
+ *
+ */
+class Template {
+
+    /**
+     * @var object $template file to put all the rest of the page elements in.
+     */
+    private $template = '';
+
+    /**
+     *
+     * @var object $header Name of header object to be populated.
+     */
+    private $header = '';
+
+    /**
+     *
+     * @var object $footer  Name of footer object to be populated
+     */
+    private $footer = '';
+
+    /**
+     *
+     * @var object $nav Name of Nav object to be populated
+     */
+    private $nav = '';
+
+    /**
+     * @var object $content Name of content file to load
+     */
+   private $content = '';
+
+    /**
+     *
+     * @var object $loaded Holder for template to be parsed later.
+     *
+     */
+    private $loaded = '';
+
+    /**
+     *  @var object $processed Results of parsed template with all parts included
+     */
+    private $processed = '';
+
+    /**
+     *
+     * instantiate the Template object.  Can overload and override
+     * the default values.
+     *
+     * @param string $header
+     * @param string $footer
+     * @param string $nav
+     * @param string $pageTitle
+     * @param string $pageSubTitle
+     */
+
+    public function __construct($template = '',$header = '',$footer = '',$nav = '',$content = '') {
+        $this->setTemplate($template);
+        $this->setHeader($header);
+        $this->setFooter($footer);
+        $this->setNav($nav);
+        $this->setContent($content);
+        $this->loadTemplate();
+    }
+
+
+    /* Time to roll the Getters and Setters! */
+
+    /**
+     *
+     * @param string $template passes in the name of the template file to use
+     */
+
+    private function setTemplate($template) {
+            $this->template = BASEPATH.TEMPLATEPATH.'layoutTemplate'.$template.'.php';
+    }
+
+    /**
+     *
+     * @return string returns the name of the template file to use.
+     */
+
+    public function getTemplate() {
+        return $this->template;
+    }
+
+    /**
+     *
+     * @param string $header Sets the name of the header to use.
+     */
+    private function setHeader($header) {
+        $this->header = $header;
+    }
+
+    /**
+     *
+     * @return string returns the name of the header configuration to use
+     */
+    public function getHeader() {
+        return $this->header;
+    }
+
+    /**
+     *
+     * @param string $footer Sets the name of the header to use.
+     */
+    private function setFooter($footer) {
+        $this->footer = $footer;
+    }
+
+    /**
+     *
+     * @return string returns the name of the footer configuration to use
+     */
+    public function getFooter() {
+        return $this->footer;
+    }
+
+    /**
+     *
+     * @param string $nav Sets the name of the header to use.
+     */
+    private function setNav($nav) {
+        $this->nav = $nav;
+    }
+
+    /**
+     *
+     * @return string returns the name of the nav configuration to use
+     */
+    public function getNav() {
+        return $this->nav;
+    }
+
+    /**
+     *
+     * @param string $content sets the path to the content file
+     *
+     */
+    private function setContent($content) {
+        //$this->content = $_SERVER["DOCUMENT_ROOT"].'content/'.$content.'.php';
+        $this->content = BASEPATH.'/content/'.$content.'.php';
+    }
+
+    public function getContent() {
+        return $this->content;
+    }
+
+    /**
+     *
+     * Retrieve template file for use on webpage
+     *
+     */
+
+    private function loadTemplate() {
+        try {
+            if(file_exists($this->template)) {
+                $this->loaded = file_get_contents($this->template);
+                //echo $this->loaded;
+                $this->parseTemplate();
+                $this->display();
+            } else {
+                throw new Exception('error: template file not found,'.$this->template);
+            }
+        } catch(exception $e) {
+            print_r($e);
+        }
+    }
+
+    /**
+     *
+     * Parse template and replace template tags with proper values
+     *
+     */
+
+    private function parseTemplate() {
+        try {
+            $searchPattern = "/\[([a-zA-Z0-9_]+)\]/i"; // macro delimiter "[" and "]"
+            $this->processed=preg_replace_callback(
+                    $searchPattern,
+                    array($this,'parseMatchedText'),
+                    $this->loaded);
+            //return $this->processed;
+        } catch (exception $e) {
+            print_r($e);
+        }
+    }
+
+    /**
+     * return the first array value from each set of matches.
+     *
+     * @param array $matches 
+     * @return string
+     */
+
+    private function parseMatchedText($matches) {
+        return $this->getValue($matches[1]);
+    }
+
+    /**
+     *  Starts buffering content
+     *  Then runs eval parser to capture any php in the content portion of the page
+     *  Stop the buffer and echo out the result.
+     */
+
+    private function display() {
+        ob_start();
+        echo eval('?>' . $this->processed . '<?php');
+        $allhtml = ob_get_contents();
+        ob_end_clean();
+        echo $allhtml;
+    }
+
+    private function getValue($string) {
+        switch($string) {
+            case 'header':
+                return $this->getHeader();
+            break;
+            case 'nav':
+                return $this->getNav();
+            break;
+            case 'footer':
+                return $this->getFooter();
+            break;
+            case 'content':
+                return $this->getContent();
+            break;
+        }
+    }
+
+    /**
+     * Create Header for Webpage.
+     *
+     * @param string $headerName name of header to include.
+     * @return string deliver name of header to include.
+     *
+     */
+
+    private function createHeader($headerName) {
+
+    }
+
+    /**
+     *  Create Footer for Webpage
+     *
+     * @param string $footerName
+     * @return string deliver name of footer to include
+     */
+
+    private function createFooter($footerName) {
+
+    }
+
+    /**
+     * Create Nav for Webpage.
+     *
+     * @param string $navName
+     * @return string deliver name of nav file
+     */
+
+    private function createNav($navName) {
+
+    }
+
+    /**
+     *  fetches the content either a file or in the DB to load on the page
+     */
+    private function fetchContent() {
+
+    }
+}
+?>

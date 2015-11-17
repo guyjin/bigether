@@ -1,0 +1,300 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Class to build html framework and plumbing around
+ * page content.
+ *
+ * @author bvaughan
+ *
+ *
+ */
+class Template {
+
+    /**
+     * @access private
+     * @var string $template file to put all the rest of the page elements in.
+     */
+    private $template = '';
+    /**
+     * @access private
+     * @var string $header Name of header object to be populated.
+     */
+    private $header = '';
+    /**
+     * @access private
+     * @var string $footer  Name of footer object to be populated
+     */
+    private $footer = '';
+    /**
+     * @access private
+     * @var string $nav Name of Nav object to be populated
+     */
+    private $nav = '';
+    /**
+     * @access private
+     * @var string $content Name of content file to load
+     */
+    private $content = '';
+    /**
+     * @access private
+     * @var string $loaded Holder for template to be parsed later.
+     */
+    private $loaded = '';
+    /**
+     * @access private
+     * @var string $processed Results of parsed template with all parts included
+     */
+    private $processed = '';
+    /**
+     * @access private
+     * @var BOOL $hasErrors did the parsing of the pieces error at any point?
+     */
+    private $didError = '';
+
+    /**
+     * instantiate the Template object.  Can overload and override
+     * the default values.
+     *
+     * @param string $header
+     * @param string $nav
+     * @param string $footer
+     * @param string $pageTitle
+     * @param string $pageSubTitle
+     */
+    public function __construct($template = '', $header = '', $nav = '', $footer = '', $content = '') {
+        $this->setTemplate($template);
+        $this->setHeader($header);
+        $this->setNav($nav);
+        $this->setFooter($footer);
+        $this->setContent($content);
+        $this->didError = FALSE;
+        $this->loadTemplate();
+    }
+
+    /**
+     * @access public
+     * @return bool returns true if parsing contained errors otherwise returns false .
+     */
+    public function hasErrors() {
+        return $this->didError;
+    }
+
+    /* Time to roll the Getters and Setters! */
+
+    /**
+     * @access private
+     * @param string $template passes in the name of the template file to use
+     */
+    private function setTemplate($template) {
+        if ($template == '') {
+            $this->template = BASEPATH . TEMPLATEPATH . 'layoutTemplateDefault.php';
+        } else {
+            $this->template = BASEPATH . TEMPLATEPATH . 'layoutTemplate' . $template . '.php';
+        }
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the template file to use.
+     */
+    public function getTemplate() {
+        return $this->template;
+    }
+
+    /**
+     * @access private
+     * @param string $header Sets the name of the header to use.
+     */
+    private function setHeader($header) {
+        $this->header = BASEPATH.'/templates/header_'.$header.'.php';
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the header configuration to use
+     */
+    public function getHeader() {
+        return $this->header;
+
+    }
+
+    /**
+     * @access private
+     * @param string $footer Sets the name of the header to use.
+     */
+    private function setFooter($footer) {
+        $this->footer = BASEPATH.'/templates/footer_'.$footer.'.php';
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the footer configuration to use
+     */
+    public function getFooter() {
+        return $this->footer;
+    }
+
+    /**
+     * @access private
+     * @param string $nav Sets the name of the header to use.
+     */
+    private function setNav($nav) {
+        $this->nav = $nav;
+    }
+
+    /**
+     * @access public
+     * @return string returns the name of the nav configuration to use
+     */
+    public function getNav() {
+        return $this->nav;
+    }
+
+    /**
+     * @access private
+     * @param string $content sets the path to the content file
+     */
+    private function setContent($content) {
+        //$this->content = $_SERVER["DOCUMENT_ROOT"].'content/'.$content.'.php';
+        $this->content = BASEPATH . '/content/' . $content . '.php';
+    }
+
+    /**
+     * @access public
+     * @return type string
+     */
+    public function getContent() {
+        return $this->content;
+    }
+
+    /**
+     * @access private
+     * Retrieve template file for use on webpage
+     */
+    private function loadTemplate() {
+        try {
+            if (file_exists($this->template)) {
+                $this->loaded = file_get_contents($this->getTemplate());
+                $this->parseTemplate();
+                //$this->display();
+            } else {
+                throw new Exception('error: template file not found,' . $this->getTemplate());
+            }
+        } catch (exception $e) {
+            $this->didError = TRUE;
+            print_r($e);
+        }
+    }
+
+    /**
+     * @access private
+     *  Parse template and replace template tags with proper values
+     */
+    private function parseTemplate() {
+        try {
+            $searchPattern = "/\[([a-zA-Z0-9_]+)\]/i"; // macro delimiter "[" and "]"
+            $this->processed = preg_replace_callback(
+                    $searchPattern, array($this, 'parseMatchedText'), $this->loaded);
+        } catch (exception $e) {
+            $this->didError = TRUE;
+            print_r($e);
+        }
+    }
+
+    /**
+     * return the first array value from each set of matches.
+     * @access private
+     * @param array $matches
+     * @return string
+     */
+    private function parseMatchedText($matches) {
+        return $this->getValue($matches[1]);
+    }
+
+    /**
+     * @access private
+     *  Runs eval parser to capture any php in the content portion of the page
+     */
+    private function display() {
+        echo eval('?>' . $this->processed . '<?php');
+    }
+
+    /**
+     * @access public
+     * @return type string
+     */
+    public function getHTML() {
+        return $this->processed;
+    }
+
+    /**
+     * @param type string $string
+     * @return type string
+     */
+    private function getValue($string) {
+        switch ($string) {
+            case 'header':
+                return $this->getHeader();
+                break;
+            case 'nav':
+                return $this->getNav();
+                break;
+            case 'footer':
+                return $this->getFooter();
+                break;
+            case 'content':
+                return $this->getContent();
+                break;
+        }
+    }
+
+    /**
+     * Create Header for Webpage.
+     * 
+     * @access private
+     * @param string $headerName name of header to include.
+     * @return string deliver name of header to include.
+     *
+     */
+    private function createHeader($headerName) {
+        
+    }
+
+    /**
+     *  Create Footer for Webpage
+     *
+     * @access private
+     * @param string $footerName
+     * @return string deliver name of footer to include
+     */
+    private function createFooter($footerName) {
+        
+    }
+
+    /**
+     * Create Nav for Webpage.
+     *
+     * @access private
+     * @param string $navName
+     * @return string deliver name of nav file
+     */
+    private function createNav($navName) {
+        
+    }
+
+    /**
+     *  fetches the content either a file or in the DB to load on the page
+     * @access private
+     */
+    private function fetchContent() {
+        
+    }
+
+}
+
+?>

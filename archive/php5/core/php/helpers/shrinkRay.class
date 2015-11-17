@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Description of shrinkRay
+ * Concatenate, minify, gzip a given list of files.
+ * Specifically intended for css and js, but could be used for others.
+ *
+ * @author bvaughan
+ */
+class shrinkRay {
+    /**
+     * @param array $files Array of the files to be shrunk
+     * @access private
+     */
+    private $files = array();
+
+    /**
+     * @param string $fileType String with type of files being shrunk
+     *
+     */
+}
+
+?>

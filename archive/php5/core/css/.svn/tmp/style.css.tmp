@@ -1,0 +1,1088 @@
+/*
+  HTML5 ✰ Boilerplate
+
+  style.css contains a reset, font normalization and some base styles.
+
+  credit is left where credit is due.
+  much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/*
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+@import url("/core/css/scrunchy.css"); /* Styles for use with the Scrunchy js plugin */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+/* END RESET CSS */
+
+
+/* fonts.css from the YUI Library: developer.yahoo.com/yui/
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
+
+  There are three custom edits:
+   * remove arial, helvetica from explicit font stack
+   * we normalize monospace styles ourselves
+   * table font-size is reset in the HTML5 reset above so there is no need to repeat
+*/
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+
+select, input, textarea, button { font:99% sans-serif; }
+
+/* normalize monospace sizing
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+
+/*
+ * minimal base styles
+ */
+
+
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #444;
+  /* set your base font here, to apply evenly */
+  font-family:"Franklin Gothic Book",Arial,Verdana,sans-serif;
+}
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+   you'll want to define those yourself. */
+h1,h2,h3,h4,h5,h6 { font-weight: normal; }
+
+/* always force a scrollbar in non-IE */
+html { overflow-y: scroll; }
+
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
+
+
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin: 0; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; }
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+pre {
+  padding: 15px;
+
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid {
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red;
+ -webkit-box-shadow: 0px 0px 5px red;
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink. */
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+
+/*  j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
+/* make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+
+/*
+ * Non-semantic helper classes
+ */
+
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
+.visuallyhidden { position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+img, object, embed {
+max-width: 100%;
+}
+
+ /* Primary Styles
+    Author: Ben Vaughan
+ */
+
+ body {
+     background: url(../images/noise.jpg) repeat top left #3D3E42;
+ }
+
+
+
+h1,h2,h3,h4,h5 {
+	margin: 0.75em 0 0.5em 12px;
+	font-family: Georgia, serif;
+	color: #000;
+}
+
+	h1 {
+		font-size: 2em;
+	}
+	h2 {
+		font-size: 1.75em;
+	}
+	h3 {
+		font-size: 1.25em;
+	}
+
+ 	h4 {
+ 		font-size: 1.15em;
+ 	}
+
+	#main li {
+		margin-bottom: 0.5em;
+	}
+
+	#main {
+            background-color: #fff;
+            -moz-box-shadow: 0px 0px 12px #000;
+            -webkit-box-shadow: 0px 0px 12px #000;
+            box-shadow: 0px 0px 12px #000;
+        }
+
+ 	#main p {
+ 		margin-bottom: .5em;
+ 	}
+
+ul {
+	margin-left: 1em;
+	padding-right: 1em;
+	margin-bottom: .5em;
+}
+
+ul li, ol li {
+
+	margin-left: 2em;
+	margin-bottom: .5em;
+}
+
+ul li {
+   list-style-type: disc;
+}
+
+ul.info li {
+	list-style-type: none;
+	margin-bottom:0.15em;
+	margin-left: 0;
+}
+
+p {
+	margin: 0;
+	padding: 1em;
+}
+
+p+ul, p+ol {
+	margin-top: -1em;
+}
+
+/**
+* layout rules
+*/
+body {
+	margin: 0;
+	padding: 0;
+    background-attachment: fixed;
+}
+
+/* containers class is used to center base elements on the page that are outside the flow of the page */
+.containers {
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 380px;
+    position: relative;
+    width: 100%;
+}
+
+/* Header components and blocks, menus, links, etc. */
+
+/* Header holds all the parts of the header */
+#header {
+    position: fixed;
+    z-index: 3;
+    height: 135px;
+    width: 100%;
+    border-top: 40px solid #000;
+}
+
+.landing #header {
+    z-index: 6;
+    height: auto;
+    position: relative;
+
+}
+
+/* navbar is the main navigation menu */
+
+#navbar {
+    position: fixed;
+    z-index: 10;
+    background: transparent url(../images/black_dusty.png) repeat top left;
+    padding-right: 20px;
+}
+
+#navbar>div {
+   background: #000;
+}
+
+
+#navbar ul {
+	position: relative;
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+    padding:0 0 0 40px;
+}
+
+	#navbar li {
+		float: left;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+	}
+
+		#navbar a {
+                    color: #dddddd;
+		    display: block;
+		    font-family: "Franklin Gothic Medium";
+		    font-size: 13px;
+		    padding: 10px 10px 0px 13px;
+		    margin-top: 4px;
+		    margin-left: 5px;
+		    text-decoration: none;
+		    height: 2em;
+		    line-height:1;
+		    position:relative;
+		    z-index: 8;
+		}
+
+		#navbar li:hover a {
+		    background-color: #fff;
+		    color: #000;
+            -webkit-border-radius: 3px 3px 0 0;
+            border-radius: 3px 3px 0 0;
+		}
+
+        #navbar li:hover .submenu,
+        #headermenu li:hover .submenu {
+            display:block;
+        }
+
+
+#navbar div#badge {
+	background: url("/core/images/small_shield.png") no-repeat scroll center center transparent;
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 40px;
+}
+
+#navbg {
+    border-top: 40px solid #000000;
+    height: 0;
+    position: fixed;
+    z-index: 9;
+    -webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.75);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.75);
+}
+
+/* Menu submenu rules */
+.submenu {
+    display:none;
+    background: none repeat scroll 0 0 #fff;
+    overflow: hidden;
+    position: absolute;
+    padding:5px 5px 5px 0;
+    box-shadow: 0px 0px 1px rgba(0,0,0,0.75);
+}
+
+.submenu .column {
+    float:left;
+    width: 15.384em;
+}
+
+#navbar .submenu {
+    top: 40px;
+    border-left-width: 5px;
+}
+
+#navbar li:hover > a {
+    color: #000;
+}
+
+ #navbar .section {
+    clear: left;
+}
+
+#navbar .section ul {
+    padding-left: 0;
+}
+
+#navbar .section li {
+    float: none;
+}
+
+	#navbar .section li a {
+	    max-width: none;
+	    width: auto;
+	    text-decoration: none;
+	    padding: 5px 5px;
+	    display:block;
+	    line-height: 1;
+	    height: 1em;
+	    background: transparent;
+	    color: #000;
+	    margin-left:0;
+	}
+
+
+#navbar .pointer {
+    position: relative;
+    right: -8px;
+    margin-top: -22px;
+    border-top: 3px solid transparent;
+    border-right: 0px;
+    border-left: 5px solid #fff;
+    border-bottom: 3px solid transparent;
+    display: block;
+    height: 0;
+    width: 0;
+    z-index: 8;
+}
+
+#navbar li:hover .pointer {
+    position: relative;
+    margin-top: -23px;
+    border-top: 6px solid #000;
+    border-bottom: 0px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    display: block;
+    height: 0;
+    width: 0;
+}
+
+#headermenu .submenu li {
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+}
+
+#headermenu .submenu a {
+    text-decoration: none;
+    padding: 5px 5px;
+    display:block;
+}
+
+#headermenu li:hover .pointer {
+    border-bottom: 0px;
+    border-left: 3px solid #fff;
+    border-right: 3px solid #fff;
+    border-top: 5px solid #000;
+    top: 11px;
+    margin-left: 8px;
+    z-index: 8;
+}
+
+/* headerbox holds the title info on interior pages */
+#headerbox {
+    background: url("/core/images/woodgrain7.jpg") no-repeat scroll 0 0 transparent;
+    height: 100px;
+    position: relative;
+    z-index: 3;
+}
+
+/* headerbox is shrunk down on portal pages */
+.landing #headerbox {
+    height: 355px;
+}
+
+/* headermenu holds the secondary menu */
+#headermenu {
+    z-index: 3;
+    position: relative;
+    top: -22px;
+}
+
+.landing #headermenu {
+    position: relative;
+    top: -19px;
+    z-index: 8;
+}
+
+#headermenu ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+}
+
+#headermenu>ul {
+    background: #fff;
+    width: 446px;
+    float: right;
+    padding: 3px 0;
+}
+
+	#headermenu>ul>li {
+	    list-style-type: none;
+	    float: right;
+	    margin: 0;
+	    padding: 0;
+	}
+
+		#headermenu>ul>li>a {
+		    color: #272727;
+		    text-decoration: none;
+		    text-shadow: 0 1px 0 #fff;
+		    padding: .5em;
+		    padding-left: 14px;
+		    padding: 3px 18px;
+		    font-family: "Franklin Gothic Medium", Helvetica, Arial, Verdana, sans-serif;
+		    position: relative;
+		    z-index: 8;
+		}
+
+		#headermenu li:hover > a:last-child {
+		    background: #f7f7f7;
+		    border-radius: 3px;
+		}
+
+		#headermenu li:hover > a {
+		    background: #f7f7f7;
+		    border-radius: 5px 5px 0 0;
+		}
+
+#headermenu .pointer {
+    display: block;
+    height: 0px;
+    width: 0px;
+    border-top: 3px solid #fff;
+	border-right: 0px;
+	border-left: 5px solid #000;
+	border-bottom: 3px solid #fff;
+    margin-left: 9px;
+    position: absolute;
+    top: 10px;
+    background-color: #fff;
+}
+
+#navbar .section a,
+#headermenu .section a{
+    text-align: left;
+    font-size: .9em;
+    font-family: "Franklin Gothic Book", Helvetica, Arial, Verdana, sans-serif;
+    font-weight: normal;
+    color: #000;
+    border: 0;
+    white-space:normal;
+}
+
+
+#navbar .section a:hover,
+#headermenu .section a:hover{
+    font-family: "Franklin Gothic Book", Helvetica, Arial, Verdana, sans-serif;
+    font-style: normal;
+    background-color: #3B546F;
+    color:#fff;
+    border-radius: 3px;
+}
+
+/* Column rules */
+
+.submenu .column {
+    float:left;
+    width: 13.384em;
+}
+
+
+.submenu .column .section {
+    margin: 0 0.5em;
+}
+
+.submenu .column>.section h3 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #3B546F;
+    font-family: "Franklin Gothic Demi",Helvetica,Arial,Verdana,sans-serif;
+    margin-top: 0.25em;
+    padding-bottom: 3px;
+    margin-left:0;
+}
+
+
+/* Submenu position rules */
+
+li#AM .submenu, li#GA .submenu,
+li#IP .submenu, li#regs .submenu{
+    margin-left: 5px;
+}
+
+li#SW .submenu {
+    right: 46px;
+}
+
+li#aqmwide .submenu {
+    right: 139px;
+    top: 22px;
+    border-bottom: 1px solid #848484;
+}
+
+li#ER .submenu  {
+    width: 600px;
+    right:1px;
+}
+
+/* Title blocks in #headerbox  */
+#pageTitle,#pageSubTitle{
+	margin-left: 59px;
+	display: block;
+	color: #fff;
+	font-family: Georgia, "Times New Roman",Times,serif;
+    font-family: "Franklin Gothic Medium";
+	font-size: 21px;
+	white-space: nowrap;
+    line-height: 1;
+    position:relative;
+    top:30px;
+}
+
+#pageSubTitle {
+    font-size: 14px;
+}
+
+.landing #pageTitle,.landing #pageSubTitle {
+    top: 60px;
+}
+
+
+/* Content -> Exactly what the name implies */
+#content {
+	position: relative;
+	z-index: 1;
+    padding-bottom: 2em;
+    padding-top: 12.25em;
+    min-height: 295px;
+}
+
+.landing #content {
+    padding-top: 0;
+}
+
+/* decorative gradient that fades out the text of the page when scrolled. */
+#fade {
+	background: url("/core/images/fade.png") repeat-x scroll left top transparent;
+    height: 38px;
+    position: fixed;
+    top: 140px;
+    width: 100%;
+    z-index: 1;
+}
+
+.landing #fade {
+    top: 40px;
+}
+
+/* Abbreviated menu name */
+.shortname {
+	display: none;
+}
+
+/* various elements that appear in the Content block */
+
+.banner {
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+}
+
+	.banner img {
+	    display: block;
+	    width: 100%;
+	}
+
+    .landing .banner img {
+        border: 10px solid #FFFFFF;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+        display: block;
+        position: absolute;
+        right: 25px;
+        top: 30px;
+        width: 520px;
+
+    }
+
+    #postcard1 {
+        -moz-transform: rotate(-6deg);
+        -o-transform: rotate(-6deg);
+        -webkit-transform: rotate(-6deg);
+        -ms-transform: rotate(-6deg);
+        transform: rotate(-6deg);
+
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=230, Color='#000000') progid:DXImageTransform.Microsoft.Matrix(
+             M11=0.9945218953682733, M12=0.10452846326765346, M21=-0.10452846326765346, M22=0.9945218953682733, sizingMethod='auto expand') ;
+        zoom: 1;
+        right: 77px;
+        top: 34px;
+    }
+
+    #postcard2 {
+        -moz-transform: rotate(-2.5deg);
+        -o-transform: rotate(-2.5deg);
+        -webkit-transform: rotate(-2.5deg);
+        -ms-transform: rotate(-2.5deg);
+        transform: rotate(-2.5deg);
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=230, Color='#000000') progid:DXImageTransform.Microsoft.Matrix(
+             M11=0.9996573249755573, M12=0.02617694830787315, M21=-0.02617694830787315, M22=0.9996573249755573, sizingMethod='auto expand') ;
+        zoom: 1;
+        right: 10px;
+        top: 19px;
+    }
+
+    #postcard3 {
+        -moz-transform: rotate(4.5deg);
+        -o-transform: rotate(4.5deg);
+        -webkit-transform: rotate(4.5deg);
+        -ms-transform: rotate(4.5deg);
+        transform: rotate(4.5deg);
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=230, Color='#000000') progid:DXImageTransform.Microsoft.Matrix(
+             M11=0.9953961983671789, M12=-0.09584575252022398, M21=0.09584575252022398, M22=0.9953961983671789, sizingMethod='auto expand') ;
+        zoom: 1;
+        right: 51px;
+        top: 24px;
+    }
+
+    .landing .banner {
+        height: 340px;
+        margin-top: -35px;
+    }
+
+/* Rules for status messages in content section */
+
+.message {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.message p {
+    margin: 0em 12px;
+	padding: 1em;
+	padding-left: 3em;
+	background-position: 1em 1.25em;
+    box-shadow: 0 0px 1px rgba(0,0,0,0.5);
+}
+
+p+.message p {
+	margin-top: 0px;
+}
+
+.warning p {
+	color: #da4d0a;
+	background-color: #fff199;
+	background-image: url(/core/images/warning_icon.png);
+	background-repeat: no-repeat;
+	background: url(/core/images/warning_icon.png) no-repeat 1em 1.25em, url(/core/images/warning_stripe.png) repeat top left;
+}
+
+.notice p {
+	color: #006cc9;
+	background-color: #d6f0ff;
+	background-image: url(/core/images/info_icon.png);
+	background-repeat: no-repeat;
+}
+
+.success p {
+	color: #0f9400;
+	background-color: #eef9e1;
+	background-image: url(/core/images/check_icon.png);
+	background-repeat: no-repeat;
+}
+
+.error p {
+	color: #d50019;
+	background-color: #ffd9da;
+	background-image: url(/core/images/error_icon.png);
+	background-repeat: no-repeat;
+}
+
+/* clear fix rules */
+.clearfix:after,
+.clearfixItems li:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* Breakout block rules */
+h2+.breakout, h3+.breakout,h4+.breakout,h5+.breakout {
+	margin-top: 1em;
+}
+
+.breakout {
+	background-color: #d6f0ff;
+	padding-bottom: 12px;
+	margin-right: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.breakout+.breakout {
+	margin-top: 2em;
+}
+
+.breakout h3 {
+	margin: 0;
+	padding: 0.25em 12px;
+	text-align: left;
+	font-size: 18px;
+}
+
+.breakout h3+p {
+	padding-top: 0px;
+}
+
+.breakout ul:last-child,
+.breakout li:last-child,
+.breakout p:last-child {
+	padding-bottom: 0;
+	margin-bottom:0 !important;
+}
+
+.breakout button {
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+
+.fineprint {
+	color: #666666;
+	display: block;
+    font-size: 10px;
+    font-style: italic;
+}
+
+button.clean-gray {
+	background: #eee;
+	background: -moz-linear-gradient(top, #eee 0%, #ccc 100%);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#ccc));
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #bbb;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1;
+	padding: 8px 0;
+	text-align: center;
+	text-shadow: 0 1px 0 #eee;
+	width: 85%;
+}
+
+button.clean-gray:hover {
+  background: #ddd;
+  background: -moz-linear-gradient(top, #ddd 0%, #bbb 100%);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#bbb));
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #999;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #ddd;
+}
+
+button.clean-gray:active {
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #888;
+  -moz-box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;
+  -webkit-box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;
+  box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;
+}
+
+a.filehighlight {
+	padding: 0.5em;
+	overflow: hidden;
+	display: block;
+	text-decoration: none;
+	color: #444;
+	margin-bottom: -12px;
+}
+
+a.filehighlight:hover {
+	color: #607890;
+}
+
+.filehighlight img {
+	float: left;
+}
+
+.filetitle {
+	border-bottom: 2px groove #fff;
+	margin-left: 55px;
+	padding-bottom: 5px;
+	margin-bottom: 3px;
+}
+
+.fileinfo {
+	margin-left: 55px;
+	overflow: hidden;
+}
+
+.fileinfo span {
+	float: left;
+	clear: left;
+	font-size: 9px;
+	padding-top: 2px;
+	font-style: italic;
+	font-family: Verdana;
+}
+
+
+
+/**
+ * Column widths for columns in the Content section
+ */
+
+.col1_0,.col1_2,.col1_4,.col1_3,.col2_3,.col3_4 {
+	float: left;
+}
+
+.col1_0 {
+	width: 100%;
+}
+
+.col1_2 {
+	width: 50%;
+}
+
+.col1_4 {
+	width: 25%;
+}
+
+.col3_4 {
+	width: 75%;
+}
+
+.col1_3 {
+	width: 33%;
+}
+
+.col2_3 {
+	width: 66%;
+}
+
+/*
+ * Data Table Rules
+ */
+
+ div.tableframe {
+     margin:12px;
+ }
+
+ table {
+     font-size: .9em;
+     width: 100%;
+ }
+
+ tr {
+     background-color: #fff;
+ }
+
+ thead tr {
+     background-color: #efefef;
+ }
+
+ th {
+     text-align: left;
+ }
+
+ .listtable tr:nth-child(even), .listtable tr.even {
+     background-color: #F0F9FF;
+ }
+
+ td,th {
+     padding: 1em;
+     border: 1px solid #ccc;
+     white-space: pre-wrap;
+ }
+
+ /* 404 rules */
+
+ body#fourohfour #content {
+     background: #fff url('/core/images/404.png') no-repeat bottom right;
+ }
+
+/**
+ * Footer Rules
+ */
+
+ #footer {
+     border-top: 1px solid #79BA25;
+     padding-top: 2em;
+     clear:both;
+ }
+
+
+
+ #footer li {
+ 	list-style-type: none;
+ 	margin-left: 0.5em;
+ }
+
+ #footer .columnHeader {
+ 	color: #666666;
+    font-family: "Franklin Gothic Book",sans-serif;
+    font-size: 1.15em;
+    font-weight: bold;
+    padding-bottom: 0.4em;
+ }
+
+ .bf_col {
+ 	float: left;
+ 	margin-bottom: 1em;
+ 	width: 20%;
+ }
+
+ .contactLinks {
+ 	clear: left;
+ 	float: left;
+ 	display: block;
+ 	padding-top: 1em;
+ 	margin: 1em;
+ 	margin-left: 160px;
+ }
+
+
+ /* Browser hacks */
+.gecko #nav {
+    margin-left: 0;
+}
+
+/*
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; }
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+
+
+

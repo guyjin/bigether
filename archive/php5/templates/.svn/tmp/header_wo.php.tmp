@@ -1,0 +1,122 @@
+<div id="header" class="containers">
+    <div id="headermenu" class="clearfix">
+        <ul class="clearfix">
+            <li id="ER">
+                <a class="toplink" href="/aqm/recovery/">Economic Recovery</a>
+                <div class="submenu">
+                    <div class="column">
+                        <div class="section">
+                            <h3>Main</h3>
+                            <ul>
+                                <li><a href="http://www.recovery.gov/">Recovery.gov</a></li>
+                                <li><a href="/aqm/recovery/">AQM Recovery Home</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/economicrecovery/">FSWeb Recovery Home</a></li>
+                                <li><a href="http://fs.usda.gov/wps/portal/!ut/p/_s.7_0_A/7_0_RU4?ss=119994&amp;navtype=BROWSEBYSUBJECT&amp;navid=091000000000000&amp;pnavid=null&amp;ttype=main&amp;cid=null&amp;position=QUICKLINKS&amp;pname=Economic%20Recovery-Home">FS WWW Recovery Home</a></li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h3>Reporting</h3>
+                            <ul>
+                                <li><a href="/aqm/recovery/reporting.php">Systems Reporting</a></li>
+                                <li><a href="/aqm/recovery/project_reporting.php">Project Reporting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="section">
+                            <h3>General</h3>
+                            <ul>
+                                <li><a href="/aqm/recovery/structure.php">Organization</a></li>
+                                <li><a href="/aqm/recovery/jobsanddetails.php">Staffing</a></li>
+                                <li><a href="/aqm/recovery/roles.php">Roles &amp; Responsibilities</a></li>
+                                <li><a href="/aqm/recovery/faq.php">F.A.Q.</a></li>
+                                <li><a href="/aqm/recovery/contacts.php">Contact List</a></li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h3>Communicate</h3>
+                            <ul>
+                                <li><a href="/aqm/recovery/contactus/index.php">Contact Us</a></li>
+                                <li><a href="/aqm/recovery/communications.php">Communications</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="section">
+                            <h3>Direction</h3>
+                            <ul>
+                                <li><a href="/aqm/recovery/guidance.php">Guidance &amp; SOPs</a></li>
+                                <li><a href="/aqm/recovery/templates.php">G&amp;A ARRA Templates</a></li>
+                                <li><a href="/aqm/recovery/transitiontraining.php">Transition Training</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li id="SW"><a href="/aqm">Service Wide</a>
+                <div class="submenu">
+                    <div class="column">
+                        <div class="section">
+                            <h3>Main</h3>
+                            <ul>
+                                <li><a href="http://fsweb.wo.fs.fed.us/">Headquarters Home</a></li>
+                                <li><a href="http://www.fs.fed.us/business/">AQM Internet</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/aqm">Forms</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/directives/">Directives</a></li>
+                                <li><a href="http://fsweb.chd.fs.fed.us/">Customer Help Desk (CHD)</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/links/fs_off.shtml">FS Websites</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/aqm/Preparedness.php">Preparedness</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="section">
+                            <h3>Staff/Employees</h3>
+                            <ul>
+                                <li><a href="http://fsweb.wo.fs.fed.us/aqm">AQM Phone Roster</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/aqm">Employee Center</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/aqm">FS Employee Search</a></li>
+                                <li><a href="http://fsweb.wo.fs.fed.us/aqm">WO Staff Directory</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li id="aqmwide">
+                <a href="/aqm">AQM Wide</a>
+                <div class="submenu" id="aqmwidemenu">
+                    <div class="column">
+                        <div class="section">
+                            <h3>Main</h3>
+                            <ul>
+                                <li><a target="_blank" href="http://fsweb.myadmin.fs.fed.us/">Albuquerque Service Center</a></li>
+                                <li><a href="/aqm/events/">Events</a></li>
+                                <li><a href="/aqm/it_support/">AQM IT Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="section">
+                            <h3>Professional Roles</h3>
+                            <ul>
+                                <li><a href="/aqm/pros/cotr.php">COTR</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li id="Home"><a href="/aqm">AQM Home</a></li>
+        </ul>
+    </div>
+    <div id="headerbox" class="containers">
+        <span id="pageTitle">[pageTitle]</span>
+        <span id="pageSubTitle">[pageSubTitle]</span>
+    </div>
+    <div id="navbar">
+        <div class="containers">
+            <div id="badge"></div>
+            <?php $n = new Nav(); ?>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : allXML.xml
+    Created on : January 11, 2011, 2:37 PM
+    Author     : byoder
+    Description:
+        Purpose of the document follows.
+-->
+
+<allnav>
+    <nav>
+        <region>WO</region>
+        <section>
+            <text>Asset Management</text>
+            <short>AM</short>
+           <id>AM</id>
+            <url>http://fsweb.wo.fs.fed.us/aqm/property</url>
+            <column>
+                <segment>
+                    <name>Main</name>
+                    <link>
+                        <text>AQM Property Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property</url>
+                    </link>
+                    <link>
+                        <text>USDA Property Management</text>
+                        <url>http://www.dm.usda.gov/pmd/</url>
+                    </link>
+                    <link>
+                        <text>WO Facilities Management</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property/facilities.php</url>
+                    </link>
+                </segment>
+                <segment>
+                    <name>Real Property</name>
+                    <link>
+                        <text>Real Property Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property/RealProp.php</url>
+                    </link>
+                    <link>
+                        <text>Asset Management Plan</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property/FRPP_RP_index.php#AM</url>
+                    </link>
+                    <link>
+                        <text>FRPP</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property/FRPP_RP_index.php#FRPP</url>
+                    </link>
+                </segment>
+                <segment>
+                    <name>Personal Property</name>
+                    <link>
+                        <text>Personal Property Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property/PersonalProp.php</url>
+                    </link>
+                    <link>
+                        <text>FEPP</text>
+                        <url>http://www.fs.fed.us/fire/partners/fepp/</url>
+                    </link>
+                </segment>
+                <segment>
+                    <name>Interview Tips</name>
+                    <link>
+                        <text>FS Interview Tips</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/repository/data/InterviewTips.doc</url>
+                    </link>
+                    <link>
+                        <text>About.com Interview Tips</text>
+                        <url>http://jobsearchtech.about.com/careers/jobsearchtech/library/weekly/aa071999.htm</url>
+                    </link>
+                </segment>
+            </column>
+            <column>
+                <segment>
+                    <name>Directives &amp; Guides</name>
+                    <link>
+                        <text>D&amp;G Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/directives/</url>
+                    </link>
+                    <link>
+                        <text>CFO Bulletins</text>
+                        <url>http://fsweb4.wo.fs.fed.us/cfo/policy/user/c_policies.jsp</url>
+                    </link>
+                </segment>
+                <segment>
+                    <name>FSM 6000 Series</name>
+                    <link>
+                        <text>FSM 6000 Series Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/directives/html/fsm6000.html</url>
+                    </link>
+                    <link>
+                        <text>Property Manuals</text>
+                        <url>http://fsweb.wo.fs.fed.us/directives/fsm/6400/</url>
+                    </link>
+                </segment>
+                <segment>
+                    <name>FSH 6000 Series</name>
+                    <link>
+                        <text>FSH 6000 Series Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/directives/html/fsh6000.html</url>
+                    </link>
+                    <link>
+                        <text>Quarters Rental</text>
+                        <url>http://fsweb.wo.fs.fed.us/directives/fsh/6409.11/</url>
+                    </link>
+                    <link>
+                        <text>Leasing Officer</text>
+                        <url>http://fsweb.wo.fs.fed.us/directives/fsh/6409.12/</url>
+                    </link>
+                    <link>
+                        <text>Federal Property Management</text>
+                        <url>http://fsweb.wo.fs.fed.us/directives/fsh/6409.31/</url>
+                    </link>
+                </segment>
+                <segment>
+                    <name>Commuter Transit</name>
+                    <link>
+                        <text>Commuter Transit Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property/commuter-transit/</url>
+                    </link>
+                    <link>
+                        <text>DC Daily Commute</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/property/commuter-transit/daily-commute/</url>
+                    </link>
+                </segment>
+            </column>
+            <column>
+                <segment>
+                    <name>Dev &amp; Training</name>
+                    <link>
+                        <text>Corporate Training &amp; Dev.</text>
+                        <url>http://fsweb.wo.fs.fed.us/hrm/ct/</url>
+                    </link>
+                    <link>
+                        <text>Federal Exec. Institute</text>
+                        <url>http://www.leadership.opm.gov/index.cfm</url>
+                    </link>
+                    <link>
+                        <text>Management Concepts</text>
+                        <url>http://www.managementconcepts.com/default.asp</url>
+                    </link>
+                    <link>
+                        <text>USDA Graduate School</text>
+                        <url>http://www.grad.usda.gov/index.html</url>
+                    </link>
+                    <link>
+                        <text>Qualification Standards</text>
+                        <url>http://www.opm.gov/qualifications/sec-iii/a/num-ndx.htm</url>
+                    </link>
+                    <link>
+                        <text>USAJobs</text>
+                        <url>http://www.usajobs.opm.gov/</url>
+                    </link>
+                </segment>
+                <segment>
+                    <name>Federal Agency Links</name>
+                    <link>
+                        <text>BLM</text>
+                        <url>http://www.blm.gov/</url>
+                    </link>
+                    <link>
+                        <text>US Dept. of Interior</text>
+                        <url>http://www.doi.gov/</url>
+                    </link>
+                    <link>
+                        <text>Parks Service</text>
+                        <url>http://www.nps.gov/</url>
+                    </link>
+                    <link>
+                        <text>Fish &amp; Wildlife</text>
+                        <url>http://www.fws.gov/</url>
+                    </link>
+                </segment>
+            </column>
+        </section>
+
+        <section>
+            <text>Incident Procurement</text>
+            <short>IP</short>
+            <id>IP</id>
+            <url>http://fsweb.wo.fs.fed.us/aqm/incident</url>
+            <column>
+                <segment>
+                    <name>Main</name>
+                    <link>
+                        <text>AQM Property Homepage</text>
+                        <url>/aqm/property/</url>
+                    </link>
+                    <link>
+                        <text>USDA Property Management</text>
+                        <url></url>
+                    </link>
+                    <link>
+                        <text>WO Facilities Management</text>
+                        <url>/aqm/property/facilities.php</url>
+                    </link>
+                </segment>
+         </column>
+        <column>
+                <segment>
+                    <name>I-BPA/EERA</name>
+                </segment>
+                <segment>
+                    <name>Aviation</name>
+                </segment>
+                <segment>
+                    <name>Buying Team</name>
+                </segment>
+                <segment>
+                    <name>Training</name>
+                </segment>
+            </column>
+            <column>
+                <segment>
+                    <name>
+                        VIPR
+                    </name>
+                </segment>
+                <segment>
+                    <name>
+                        Getting Started With VIPR
+                    </name>
+                </segment>
+                <segment>
+                    <name>
+                        VIPR Project Documentation
+                    </name>
+                </segment>
+            </column>
+        </section>
+        <section>
+            <text>Grants &amp; Agreements</text>
+            <short>GA</short>
+            <id>GA</id>
+             <url>http://fsweb.wo.fs.fed.us/aqm/grants</url>
+             <column>
+                 <segment>
+                    <name>Main</name>
+                    <link>
+                        <text>G&amp;A Homepage</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/grants</url>
+                    </link>
+                    <link>
+                        <text>G&amp;A Contacts</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>G&amp;A Staffs</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>Service Wide Agreements</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>Policy, Regulations, &amp; Procedures</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/grants</url>
+                    </link>
+                    <link>
+                        <text>I-Web</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>Resource Links</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>Forms/Templates</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>Training Resources</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>G&amp;A Community Information</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+                    <link>
+                        <text>Frequently Asked Questions</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm</url>
+                    </link>
+               </segment>
+           </column>
+        </section>
+        <section>
+            <text>Regulations</text>
+            <short>Regs</short>
+            <id>regs</id>
+            <url>/aqm/regulations/</url>
+            <column>
+                <segment>
+                    <name>Main</name>
+                    <link>
+                        <text>AGAR</text>
+                        <url>http://www.usda.gov/procurement/policy/index.html</url>
+                    </link>
+                    <link>
+                        <text>FAR</text>
+                        <url>https://www.acquisition.gov/far/</url>
+                    </link>
+                    <link>
+                        <text>FSAR</text>
+                        <url>http://fsweb.wo.fs.fed.us/aqm/fsar/</url>
+                    </link>
+                    <link>
+                        <text>USDA Directives</text>
+                        <url>http://www.ocio.usda.gov/directives/index.html</url>
+                    </link>
+                </segment>
+            </column>
+        </section>
+        <section>
+            <text>Procurement Policy</text>
+            <short>PP</short>
+            <id>PP</id>
+            <url>http://fsweb.wo.fs.fed.us/aqm/procurement</url>
+        </section>
+        <section>
+            <text>AQM IT Support</text>
+            <short>ITS</short>
+            <id>AITS</id>
+            <url>/aqm/it_support/</url>
+        </section>
+
+
+        <section>
+            <text>AQM 2011</text>
+            <short>2011</short>
+            <id>aqm2011</id>
+            <url>/aqm/aqm2011/</url>
+        </section>
+
+        <section>
+            <text>Contracts</text>
+            <short>Crcts</short>
+            <id>contracts</id>
+            <url>/aqm/contractpa/</url>
+        </section>
+    </nav>
+</allnav>
+

@@ -1,0 +1,22 @@
+<div id="navbar">
+    <div id="badge"></div>
+    <?php $n = new Nav(); ?>
+</div>
+<div id="navbg" class="containers"></div>
+<div id="header" class="containers">
+
+    <div id="headerbox" class="containers">
+        <span id="pageTitle">[pageTitle]</span>
+        <span id="pageSubTitle">[pageSubTitle]</span>
+        <div class="banner">
+            <img id="postcard1" src="/core/images/banners/art3.jpg" />
+            <img id="postcard2" src="/core/images/banners/art4.jpg" />
+            <img id="postcard3" src="/core/images/banners/art2.jpg" />
+        </div>
+    </div>
+
+</div>
+
+    <div id="headermenu" class="clearfix">
+        <?php $h = new Nav($navName = "headerNav"); ?>
+    </div>
