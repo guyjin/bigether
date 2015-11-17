@@ -20,3 +20,5 @@ nbproject/project.xml
 .idea/workspace.xml
 
 js/jquery-anystretch/
+
+.DS_Store
