@@ -1,1 +1,0 @@
-var toggleDrawer=function(){"-25%"===$(".main-container").css("right")?$(".main-container").animate({right:"0%"},1200,"easeOutQuad"):$(".main-container").animate({right:"-25%"},400,"easeOutQuad")},drawer=function(n){$(n).show(),toggleDrawer()};$(document).ready(function($){$("#responsive-menu-button").sidr({name:"sidr-main",source:"#navigation"})});
