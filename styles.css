@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -9,6 +10,7 @@ main {
     grid-auto-flow: row;
     place-items: center;
     background: #efefef;
+    position: relative;
 }
 
 main.random {
@@ -28,7 +30,7 @@ main.random {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ddd;  /* Optional, just to visualize each grid cell */
+    border: 1px solid #ddd; /* Optional, just to visualize each grid cell */
     border-radius: 10px;
     background-color: #abf7ff;
     transform-origin: center;
@@ -39,5 +41,12 @@ nav {
     bottom: 0;
     left: 0;
     background: red;
+}
 
+.point {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 10px;
+    position: absolute;
 }

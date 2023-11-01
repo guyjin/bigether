@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
+
   <body>
     <main id="grid">
       <div class="card" name="site1" data-id="1">Site 1</div>
@@ -25,6 +27,7 @@
       <div class="card" name="site14" data-id="14">Site 14</div>
       <div class="card" name="site15" data-id="15">Site 15</div>
       <div class="card" name="site16" data-id="16">Site 16</div>
+      <div class="point"></div>
     </main>
     <nav>
       <ul>
@@ -46,132 +49,9 @@
         <li><a href="#site16">Site 16</a></li>
       </ul>
     </nav>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-
-    <script type="text/javascript">
-      function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <=
-            (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
-
-      function findVisibleCard(cards, container) {
-        // const cards = Array.from(container.querySelectorAll(".card"));
-        // const container = document.querySelector("main");
-        let targetCard = null;
-        cards.forEach((card) => {
-          if (isInViewport(card) && !targetCard) {
-            targetCard = card;
-          }
-        });
-
-        if (targetCard) {
-          // Calculate the center of the card
-          const rect = targetCard.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-
-          // Set the transform origin for the 'main' element
-          container.style.transformOrigin = `${centerX}px ${centerY}px`;
-          cards = null;
-        }
-      }
-      // function setTransformOrigin(container) {
-      //   // Calculate the intersection between the viewport and the main element
-      //   const viewportWidth = window.innerWidth;
-      //   const viewportHeight = window.innerHeight;
-
-      //   const rect = container.getBoundingClientRect();
-
-      //   const intersectionLeft = Math.max(0, rect.left);
-      //   const intersectionTop = Math.max(0, rect.top);
-      //   const intersectionRight = Math.min(viewportWidth, rect.right);
-      //   const intersectionBottom = Math.min(viewportHeight, rect.bottom);
-
-      //   // Determine the center of the intersection
-      //   const intersectionCenterX = (intersectionLeft + intersectionRight) / 2;
-      //   const intersectionCenterY = (intersectionTop + intersectionBottom) / 2;
-
-      //   // Set the transform origin for the 'main' element
-      //   container.style.transformOrigin = `${intersectionCenterX}px ${intersectionCenterY}px`;
-      // }
-      document.addEventListener("DOMContentLoaded", function () {
-        const container = document.querySelector("main");
-        container.classList.add("random");
-        const cards = Array.from(container.querySelectorAll(".card"));
-
-        const takenPositions = new Set();
-
-        cards.forEach((card) => {
-          let randomRow, randomCol;
-
-          do {
-            randomRow = Math.floor(Math.random() * 4) + 1; // 1 to 4
-            randomCol = Math.floor(Math.random() * 4) + 1; // 1 to 4
-          } while (takenPositions.has(`${randomRow}-${randomCol}`));
-
-          takenPositions.add(`${randomRow}-${randomCol}`);
-
-          card.style.gridRow = randomRow;
-          card.style.gridColumn = randomCol;
-        });
-
-        setTransformOrigin(container);
-
-        // Listen to menu link clicks
-        document.querySelectorAll("nav a").forEach((link) => {
-          link.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default browser behavior
-
-            const href = this.getAttribute("href");
-            const targetCell = document.querySelector(
-              `.card[name=${href.slice(1)}]`
-            );
-            const rect = targetCell.getBoundingClientRect();
-
-            const translateX =
-              -targetCell.offsetLeft + window.innerWidth / 2 - rect.width / 2;
-            const translateY =
-              -targetCell.offsetTop + window.innerHeight / 2 - rect.height / 2;
-
-            // Use GSAP to animate
-            gsap.to(container, {
-              x: translateX,
-              y: translateY,
-            });
-
-            // gsap.to(container, {
-            //   scale: 0.25, // scale to original size
-            //   duration: 5,
-            //   x: 0,
-            //   y: 0,
-            // });
-            //   .then(() => {
-            //     gsap.to(container, {
-            //       x: translateX,
-            //       y: translateY,
-            //       onComplete: setTransformOrigin,
-            //       onCompleteParams: [container],
-            //     });
-            //   })
-            //   .then(() => {
-            //     // After the first animation completes, zoom back in
-            //     gsap.to(container, {
-            //       duration: 0.5, // 500 milliseconds
-            //       scale: 1, // zoom in to original scale
-            //       onComplete: setTransformOrigin,
-            //       onCompleteParams: [container],
-            //     });
-            //   });
-          });
-        });
-      });
-    </script>
+    <script src="./script.js"></script>
   </body>
+
 </html>
