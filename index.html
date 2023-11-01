@@ -82,6 +82,25 @@
           cards = null;
         }
       }
+      // function setTransformOrigin(container) {
+      //   // Calculate the intersection between the viewport and the main element
+      //   const viewportWidth = window.innerWidth;
+      //   const viewportHeight = window.innerHeight;
+
+      //   const rect = container.getBoundingClientRect();
+
+      //   const intersectionLeft = Math.max(0, rect.left);
+      //   const intersectionTop = Math.max(0, rect.top);
+      //   const intersectionRight = Math.min(viewportWidth, rect.right);
+      //   const intersectionBottom = Math.min(viewportHeight, rect.bottom);
+
+      //   // Determine the center of the intersection
+      //   const intersectionCenterX = (intersectionLeft + intersectionRight) / 2;
+      //   const intersectionCenterY = (intersectionTop + intersectionBottom) / 2;
+
+      //   // Set the transform origin for the 'main' element
+      //   container.style.transformOrigin = `${intersectionCenterX}px ${intersectionCenterY}px`;
+      // }
       document.addEventListener("DOMContentLoaded", function () {
         const container = document.querySelector("main");
         container.classList.add("random");
@@ -103,7 +122,7 @@
           card.style.gridColumn = randomCol;
         });
 
-        findVisibleCard(cards, container);
+        setTransformOrigin(container);
 
         // Listen to menu link clicks
         document.querySelectorAll("nav a").forEach((link) => {
@@ -122,29 +141,34 @@
               -targetCell.offsetTop + window.innerHeight / 2 - rect.height / 2;
 
             // Use GSAP to animate
-            gsap
-              .to(container, {
-                duration: 0.5, // 500 milliseconds
-                scale: 0.5, // scale to original size
-                ease: "none", // easing for a smoother animation
-              })
-              .then(() => {
-                gsap.to(container, {
-                  duration: 2,
-                  x: translateX,
-                  y: translateY,
-                  ease: "none",
-                });
-              })
-              .then(() => {
-                // After the first animation completes, zoom back in
-                gsap.to(container, {
-                  duration: 0.5, // 500 milliseconds
-                  scale: 1, // zoom in to original scale
-                  ease: "none", // easing for a smoother animation
-                  onComplete: findVisibleCard,
-                });
-              });
+            gsap.to(container, {
+              x: translateX,
+              y: translateY,
+            });
+
+            // gsap.to(container, {
+            //   scale: 0.25, // scale to original size
+            //   duration: 5,
+            //   x: 0,
+            //   y: 0,
+            // });
+            //   .then(() => {
+            //     gsap.to(container, {
+            //       x: translateX,
+            //       y: translateY,
+            //       onComplete: setTransformOrigin,
+            //       onCompleteParams: [container],
+            //     });
+            //   })
+            //   .then(() => {
+            //     // After the first animation completes, zoom back in
+            //     gsap.to(container, {
+            //       duration: 0.5, // 500 milliseconds
+            //       scale: 1, // zoom in to original scale
+            //       onComplete: setTransformOrigin,
+            //       onCompleteParams: [container],
+            //     });
+            //   });
           });
         });
       });

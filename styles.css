@@ -8,6 +8,7 @@ main {
     display: grid;
     grid-auto-flow: row;
     place-items: center;
+    background: #efefef;
 }
 
 main.random {
